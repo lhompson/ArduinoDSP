@@ -13,7 +13,7 @@ void setup() {
 void loop() {
    float arr1[7] = {0.0, 1.0, 2.0, 3.44, 4.0, 5.0, 6.0};
    float arr2[7] = {0.0, 0.0, 0.0, 1.00, 0.0, 0.0, 0.0};
-   float conv[21];
+   float conv[13];
    Serial.println("convolution = ");
    slowConvolve(arr1, arr2, conv, 7, 7);
    printVec(conv, 21);
@@ -46,7 +46,7 @@ void slowConvolve(float x[], float y[], float conv[], int N, int M) {
    * Implements convolution with O(N^2). Vector x is of size N,
    * vector Y is of size M. Operations are peformed on result in place.
    */
-   int totalsize = 2*N + M;
+   int totalsize = N + M - 1;
    float ypadded[totalsize];
    float xpadded[totalsize];
 
